@@ -18,6 +18,7 @@ class LogAnalysys
 		string  reg;
 	};
 
+
 	int NumberOfArguments;
 	char ** HandleToArguments;
 	string OutString;

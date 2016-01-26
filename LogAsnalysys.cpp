@@ -59,6 +59,7 @@ void LogAnalysys::set_reg (word * name,int number,char**argc)
 }
 void LogAnalysys::if_match (word * name , int number,string & word)
 {
+	regmatch_t cos [5];
 	regex_t regex;
 	int reti;
 	for (int i=0;i<number;i++)
@@ -69,10 +70,11 @@ void LogAnalysys::if_match (word * name , int number,string & word)
 			fprintf(stderr, "Could not compile regex\n");
 			exit(1);
 		}
-		reti = regexec(&regex, word.c_str(), 0, NULL, 0);
+		reti = regexec(&regex, word.c_str(), 5, cos, 0);
 		if (!reti) {
 			name[i].flag=1;
 		}
+
 	}
 }
 
