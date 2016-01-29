@@ -12,8 +12,7 @@
 
 using namespace std;
 class LogSort
-{
-  int iter;
+{       int iter;
 	int p;
 	int NonLine;
 	vector< int>::iterator it;
@@ -21,15 +20,16 @@ class LogSort
 	int currentLine;
     vector <int> LineContainer;
     vector <int> Line;
-    vector <unsigned long long int  > container;
+    vector <string > container;
 
 public:
 
+  bool comp(string & a, string &b);
 	void  Log (string name);
     void Sort ();
 	void  Preprocess (string formula,int LineNumber );
     void WriteToFile ();
-    void Swap (vector <unsigned long long int  >& container,vector <int> &LineContainer, int i,vector <int>& Line);
+    void Swap (vector <string  >& container,vector <int> &LineContainer, int i,vector <int>& Line);
     string GetStringLine(int LineNumber,fstream & File,int i,ofstream & NewFile);
 };
 

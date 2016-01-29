@@ -23,7 +23,7 @@ using namespace std;
 
 void LogSort:: Preprocess (string formula , int LineNumber)
 	{
-	  
+
 	  bool IFmatch=0;
 	  string wynik;
 	  wynik.resize(17);
@@ -100,28 +100,30 @@ void LogSort:: Preprocess (string formula , int LineNumber)
 	  
 	  if (IFmatch)
 	  {
-	    
 	    iter++;
 	    Line.push_back(0);  
-	   
+	    container.push_back(wynik);
+            LineContainer.push_back(LineNumber);
 	  }
-        container.push_back(wynik);
-        LineContainer.push_back(LineNumber);
-	
+       
 	}
 void LogSort:: Sort()
 {
+
+  /*nt o=-1;
 for (unsigned int i=0;i<container.size()-1;i++)
 {
-	for (unsigned int j=0;j<container.size()-1;j++)
+	for (unsigned int j=0;j<container.size()-i-1;j++)
 	{
 		if (container[j]>container[j+1])
 		{
         Swap(container,LineContainer,j,Line);
 		}
 	}
+	
+}*/
 }
-}
+/*
 void LogSort::WriteToFile()
 {
 
@@ -137,7 +139,7 @@ void LogSort::WriteToFile()
 	}
 	else cout<<"Can not open file"<<endl;
 }
-void LogSort::Swap(vector <unsigned long long int> &container,vector <int> & LineContainer ,int i,vector <int>& Line)
+void LogSort::Swap(vector <string> &container,vector <int> & LineContainer ,int i,vector <int>& Line)
 {
 	int overWriteIL=Line[i];
 	int overWriteI=LineContainer[i];
@@ -173,13 +175,18 @@ string LogSort:: GetStringLine(int LineNumber, fstream & File,int i,ofstream & N
     File.seekg(0,File.beg);
     currentLine=0;
     return a;
-}
+}*/
 void LogSort::Log(string name)
 {
-   iter=-1;
+ 	   iter=-1;
 	p=-1;
     NonLine=0;
 	nameOfFile=name;
 	currentLine=0;
+}
+bool LogSort::comp(string & a, string &b)
+{
+  
+  
 }
 
