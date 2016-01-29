@@ -13,6 +13,7 @@
 using namespace std;
 class LogSort
 {
+  int iter;
 	int p;
 	int NonLine;
 	vector< int>::iterator it;

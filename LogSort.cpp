@@ -23,54 +23,91 @@ using namespace std;
 
 void LogSort:: Preprocess (string formula , int LineNumber)
 	{
-	  unsigned  long long int g;
-       string  Time;
-	   int res;
-	   int len;
-	   char result[BUFSIZ];
-	   char err_buf[BUFSIZ];
-	   const  char* pattern =  "([0-9]{4})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2}).([0-9]{3})";
-	   regex_t preg;
-	   regmatch_t pmatch[40];
-
-	   if( (res = regcomp(&preg, pattern, REG_EXTENDED)) != 0)
-	   {
-	      regerror(res, &preg, err_buf, BUFSIZ);
-	      printf("regcomp: %s\n", err_buf);
-	      exit(res);
-	   }
-	   res = regexec(&preg, formula.c_str(), 40, pmatch, 0);
-	   if(res == REG_NOMATCH)
-	   {
-		   if (container.empty())
-		   {
-		   }
-		   else
-		   {
-			   NonLine++;
-              Line[p]=NonLine;
-		   }
-	   }
-
-	   else
-	   {
-p++;
-cout<<p<<endl;
-cout<<NonLine<<endl;
-		Line.push_back(NonLine);
-		NonLine=0;
-	   for (int i = 1; pmatch[i].rm_so != -1; i++)
-	   {
-	      len = pmatch[i].rm_eo - pmatch[i].rm_so;
-	      memcpy(result, formula.c_str() + pmatch[i].rm_so, len);
-	      result[len] = 0;
-		  Time = Time +string (result);
-	   }
-	   g=atoll(Time.c_str());
-        container.push_back(g);
+	  
+	  bool IFmatch=0;
+	  string wynik;
+	  wynik.resize(17);
+	  int com=6;
+	
+	  if (formula[com]=='[' && formula[com+24] == ']')
+	  {
+	    wynik[0]=formula[com+1];
+	    wynik[1]=formula[com+2];
+	     wynik[2]=formula[com+3];
+	    wynik[3]=formula[com+4];
+	    
+	    wynik[4]=formula[com+6];
+	    wynik[5]=formula[com+7];
+	    
+	    wynik[6]=formula[com+9];
+	    wynik[7]=formula[com+10];
+	    
+	    wynik[8]=formula[com+12];
+	    wynik[9]=formula[com+13];
+	    
+	    wynik[10]=formula[com+15];
+	    wynik[11]=formula[com+16];
+	    
+	     wynik[12]=formula[com+18];
+	    wynik[13]=formula[com+19];
+	    
+	    wynik[14]=formula[com+21];
+	    wynik[15]=formula[com+22];
+	    wynik[16]=formula[com+23];
+	    IFmatch=1;
+	    
+	  }
+	 else {
+	    com++;
+	    while(com+24<formula.length())
+	    {
+	    if (formula[com]=='[' && formula[com+24] == ']')
+	    {
+	          wynik[0]=formula[com+1];
+	    wynik[1]=formula[com+2];
+	     wynik[2]=formula[com+3];
+	    wynik[3]=formula[com+4];
+	    
+	    wynik[4]=formula[com+6];
+	    wynik[5]=formula[com+7];
+	    
+	    wynik[6]=formula[com+9];
+	    wynik[7]=formula[com+10];
+	    
+	    wynik[8]=formula[com+12];
+	    wynik[9]=formula[com+13];
+	    
+	    wynik[10]=formula[com+15];
+	    wynik[11]=formula[com+16];
+	    
+	     wynik[12]=formula[com+18];
+	    wynik[13]=formula[com+19];
+	    
+	    wynik[14]=formula[com+21];
+	    wynik[15]=formula[com+22];
+	    wynik[16]=formula[com+23];
+	    IFmatch=1;
+	 
+	    }
+	    com++;
+	    }    
+	  }
+	  if (!IFmatch)
+	  {
+	    
+	    Line[iter]++;
+	  }
+	  
+	  if (IFmatch)
+	  {
+	    
+	    iter++;
+	    Line.push_back(0);  
+	   
+	  }
+        container.push_back(wynik);
         LineContainer.push_back(LineNumber);
-	   }
-	   regfree(&preg);
+	
 	}
 void LogSort:: Sort()
 {
@@ -139,8 +176,9 @@ string LogSort:: GetStringLine(int LineNumber, fstream & File,int i,ofstream & N
 }
 void LogSort::Log(string name)
 {
+   iter=-1;
 	p=-1;
-NonLine=0;
+    NonLine=0;
 	nameOfFile=name;
 	currentLine=0;
 }
