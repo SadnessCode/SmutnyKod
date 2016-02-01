@@ -61,7 +61,7 @@ int main( int argc, char * argv[]) {
 t = clock() - t;
   cout<<((float)t/CLOCKS_PER_SEC)<<endl;
 			//tutaj juz -1
-  /*
+  
 			File.clear();
 			File.seekg(0,File.beg);
 			cout<<"sortuje"<<endl;
@@ -69,6 +69,7 @@ t = clock() - t;
 			Sorto.Sort();
 t = clock() - t;
   cout<<((float)t/CLOCKS_PER_SEC)<<endl;
+  /*
   /*
 			do{
 				getline(File,LineOfFile);

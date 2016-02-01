@@ -11,14 +11,22 @@
 #define LOGSORT_HPP_
 
 using namespace std;
+
 class LogSort
-{       int iter;
+{      
+public:
+    class Line
+    		{
+    			long long int a;
+    		};
+private:
+	int iter;
 	int p;
 	int NonLine;
-	vector< int>::iterator it;
+	Line *ptr;
 	string nameOfFile;
 	int currentLine;
-    vector <int> LineContainer;
+    vector <Line*> LineContainer;
     vector <int> Line;
     vector <string > container;
 
@@ -28,9 +36,9 @@ public:
 	void  Log (string name);
     void Sort ();
 	void  Preprocess (string formula,int LineNumber );
-    void WriteToFile ();
-    void Swap (vector <string  >& container,vector <int> &LineContainer, int i,vector <int>& Line);
-    string GetStringLine(int LineNumber,fstream & File,int i,ofstream & NewFile);
+   // void WriteToFile ();
+    void Swap (vector<long long int *> a,vector<long long int *> b);
+   // string GetStringLine(int LineNumber,fstream & File,int i,ofstream & NewFile);
 };
 
 
