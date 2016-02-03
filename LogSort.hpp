@@ -35,12 +35,10 @@ private:
 public:
     vector <IntStruct*> LineContainer;
 IntStruct *ptr;
-  bool comp(string & a, string &b);
 	void  Log (string name);
     void  Sort ( int lewy, int prawy);
 	void  Preprocess (string formula,long LineNumber );
    void WriteToFile ();
-    void Swap (vector<long long int *> a,vector<long long int *> b);
     string GetStringLine(int LineNumber,fstream & File,int i,ofstream & NewFile);
 };
 

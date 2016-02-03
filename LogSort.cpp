@@ -116,13 +116,6 @@ void LogSort:: Preprocess (string formula , long LineNumber)
 	}
 void LogSort:: Sort( int lewy, int prawy)
 {
-	
-	/*for (int i =0;i<LineContainer.size ();i++)
-	{
-		cout<<LineContainer[i]->a<<endl;
-	}*/	
-	
-
 
  long long int v=LineContainer[(lewy+prawy)/2]->a;
  
@@ -164,17 +157,7 @@ while
 if (j>lewy) Sort (lewy,j);
   if (i<prawy) Sort (i,prawy);
 
- /*for (int i =0;i<LineContainer.size ();i++)
-	{
-		cout<<"czas to.." <<LineContainer[i]->a<<"Linijka to.." <<LineContainer[i]->line <<"wyrazy wolne to."<<container[i] <<endl;
-	}*/	
-	
-
-
-
 }
-  
- 
 
 void LogSort::WriteToFile()
 {
@@ -192,23 +175,13 @@ void LogSort::WriteToFile()
 	}
 	else cout<<"Can not open file"<<endl;
 }
-void LogSort::Swap(vector<long long int *> a,vector<long long int *> b)
-{
-	
-
-}
-
 string LogSort:: GetStringLine(int LineNumber, fstream & File,int i,ofstream & New)
 {
 	short int y;
 
 	string b;
     string a;
-   /* for (;currentLine<LineNumber+1;currentLine++)
-    {
-      
-     getline (File, a);
-    }*/
+ 
    File.seekp(LineNumber);
    getline (File, a);
     
@@ -235,8 +208,4 @@ void LogSort::Log(string name)
 	nameOfFile=name;
 	currentLine=0;
 }
-bool LogSort::comp(string & a, string &b)
-{
-  
-  
-}
+
