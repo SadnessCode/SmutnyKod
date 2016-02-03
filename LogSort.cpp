@@ -21,16 +21,17 @@
 
 using namespace std;
 
-void LogSort:: Preprocess (string formula , int LineNumber)
+void LogSort:: Preprocess (string formula , long LineNumber)
 	{
 
-	  
+	
+	
 	  long long int * IntWynik=0;
 	  bool IFmatch=0;
 	  string wynik;
 	  wynik.resize(17);
 	  int com=6;
-	
+	 
 	  if (formula[com]=='[' && formula[com+24] == ']')
 	  {
 	    wynik[0]=formula[com+1];
@@ -96,36 +97,85 @@ void LogSort:: Preprocess (string formula , int LineNumber)
 	  }
 	  if (!IFmatch)
 	  {
-		 ptr=new LogSort::Line;
-	//	 * LinePtr->a=atoll(wynik.c_str());
+		container[iter]++;
+		
 	  }
 	  if (IFmatch)
 	  {
-	//	  LinePtr = new Line ;
-	//	*LinePtr->a=atoll(wynik.c_str());
+		  ptr=new IntStruct;
+		ptr->a=atoll(wynik.c_str());
+		ptr->line=LineNumber;
+		LineContainer.push_back(ptr);
+		container.push_back(0);
+		iter++;
 	  }
-	 // LineContainer.push_back(&LinePtr);
+	
+	 
+	  
       
 	}
-void LogSort:: Sort()
+void LogSort:: Sort( int lewy, int prawy)
 {
-	/*
-for (unsigned int i=0;i<LineContainer.size()-1;i++)
-{
-	for (unsigned int j=0;j<LineContainer.size()-i-1;j++)
+	
+	/*for (int i =0;i<LineContainer.size ();i++)
 	{
-		if (*LineContainer[j].a>*LineContainer[j+1].a)
-		{
-			long long int * y=LineContainer[j];
-			LineContainer[j]=LineContainer[j+1];
-			LineContainer[j+1]=y;
+		cout<<LineContainer[i]->a<<endl;
+	}*/	
+	
+
+
+ long long int v=LineContainer[(lewy+prawy)/2]->a;
+ 
+int i;
+int j;
+int x;
+
+i=lewy;
+j=prawy;
+do
+{
+while
+ (LineContainer[i]->a<v) 
+ {  
+   i++;
+ }
+while
+ (LineContainer[j]->a>v) 
+ {
+   j--;
+ }
+ if (i<=j)
+ { 
+   long long int p= LineContainer[i]->a;
+     long long int e= LineContainer[i]->line;
+     short int g=container[i];
+			LineContainer[i]->a=LineContainer[j]->a;
+			LineContainer[j]->a=p;
 			
-		}
-	}
-	*/
+			container[i]=container[j];
+			container[j]=g;
+			
+			LineContainer[i]->line=LineContainer[j]->line;
+			LineContainer[j]->line=e;
+			j--;
+			i++;			
+ }
+}while(i<=j);
+if (j>lewy) Sort (lewy,j);
+  if (i<prawy) Sort (i,prawy);
+
+ /*for (int i =0;i<LineContainer.size ();i++)
+	{
+		cout<<"czas to.." <<LineContainer[i]->a<<"Linijka to.." <<LineContainer[i]->line <<"wyrazy wolne to."<<container[i] <<endl;
+	}*/	
+	
+
+
 
 }
-/*
+  
+ 
+
 void LogSort::WriteToFile()
 {
 
@@ -136,43 +186,49 @@ void LogSort::WriteToFile()
 	{
 	for (unsigned int i=0;i<container.size();i++)
 	{
-      NewFile<<GetStringLine(LineContainer[i],File,i,NewFile)<<endl;
+	  
+      NewFile<<GetStringLine(LineContainer[i]->line,File,i,NewFile)<<endl;
 	}
 	}
 	else cout<<"Can not open file"<<endl;
-}*/
+}
 void LogSort::Swap(vector<long long int *> a,vector<long long int *> b)
 {
 	
 
 }
-/*
+
 string LogSort:: GetStringLine(int LineNumber, fstream & File,int i,ofstream & New)
 {
 	short int y;
 
 	string b;
     string a;
-    for (;currentLine<LineNumber+1;currentLine++)
+   /* for (;currentLine<LineNumber+1;currentLine++)
     {
+      
      getline (File, a);
-    }
-    while (Line[i]>0)
+    }*/
+   File.seekp(LineNumber);
+   getline (File, a);
+    
+    while (container[i]>0)
     {
     	getline(File,b);
         y=a.length();
         a.resize(y+1);
     	a[y]='\n';
         a=a+b;
-    	Line[i]--;
+    	container[i]--;
     }
     File.clear();
     File.seekg(0,File.beg);
     currentLine=0;
     return a;
-}*/
+}
 void LogSort::Log(string name)
 {
+
  	   iter=-1;
 	p=-1;
     NonLine=0;

@@ -50,10 +50,10 @@ int main( int argc, char * argv[]) {
                         cout<<"wczytuje"<<endl;
 			while( !File.eof() )
 			        {
-                                     
+                                      long pos=File.tellp();
 			            getline( File, LineOfFile );
-                                    
-			            Sorto.Preprocess(LineOfFile,Line);
+                                  
+			            Sorto.Preprocess(LineOfFile,pos);
 			            Line++;
 			        }
 			         
@@ -61,15 +61,14 @@ int main( int argc, char * argv[]) {
 t = clock() - t;
   cout<<((float)t/CLOCKS_PER_SEC)<<endl;
 			//tutaj juz -1
-  
+
 			File.clear();
 			File.seekg(0,File.beg);
 			cout<<"sortuje"<<endl;
 			
-			Sorto.Sort();
+			Sorto.Sort(0,Sorto.LineContainer.size()-1);
 t = clock() - t;
   cout<<((float)t/CLOCKS_PER_SEC)<<endl;
-  /*
   /*
 			do{
 				getline(File,LineOfFile);
@@ -83,9 +82,10 @@ t = clock() - t;
 		{
 			cout<<"can not open file"<<endl;
 		}
+		*/
 	cout<<"Pisze do Pliku"<<endl;
 	Sorto.WriteToFile();
 		t = clock() - t;
-  cout<<((float)t/CLOCKS_PER_SEC)<<endl;*/
+  cout<<((float)t/CLOCKS_PER_SEC)<<endl;
   return 0;
 }
