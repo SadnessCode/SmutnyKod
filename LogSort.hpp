@@ -30,13 +30,13 @@ private:
 	int currentLine;
     
     
-    vector <short int > container;
+    vector < int > container;
 
 public:
     vector <IntStruct*> LineContainer;
 IntStruct *ptr;
 	void  Log (string name);
-    void  Sort ( int lewy, int prawy);
+    void  Sort (long int lewy, long int prawy);
 	void  Preprocess (string formula,long LineNumber );
    void WriteToFile ();
     string GetStringLine(int LineNumber,fstream & File,int i,ofstream & NewFile);

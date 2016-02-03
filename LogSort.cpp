@@ -114,14 +114,14 @@ void LogSort:: Preprocess (string formula , long LineNumber)
 	  
       
 	}
-void LogSort:: Sort( int lewy, int prawy)
+void LogSort:: Sort( long int lewy,long int prawy)
 {
 
  long long int v=LineContainer[(lewy+prawy)/2]->a;
  
-int i;
-int j;
-int x;
+long int i;
+long int j;
+long int x;
 
 i=lewy;
 j=prawy;
@@ -141,7 +141,7 @@ while
  { 
    long long int p= LineContainer[i]->a;
      long long int e= LineContainer[i]->line;
-     short int g=container[i];
+      int g=container[i];
 			LineContainer[i]->a=LineContainer[j]->a;
 			LineContainer[j]->a=p;
 			
@@ -177,7 +177,7 @@ void LogSort::WriteToFile()
 }
 string LogSort:: GetStringLine(int LineNumber, fstream & File,int i,ofstream & New)
 {
-	short int y;
+	long int y;
 
 	string b;
     string a;
