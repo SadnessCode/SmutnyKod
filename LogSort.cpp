@@ -30,7 +30,7 @@ void LogSort:: Preprocess (string formula , long LineNumber)
 	  bool IFmatch=0;
 	  string wynik;
 	  wynik.resize(17);
-	  int com=6;
+	  int com=0;
 	 
 	  if (formula[com]=='[' && formula[com+24] == ']')
 	  {
