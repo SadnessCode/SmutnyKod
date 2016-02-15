@@ -1,0 +1,15 @@
+
+Program LogSort v 1.0 służy do sortowania Logów wzgledem czasu w nich zawartego;
+
+Format czasu:
+[rok-miesiac-dzien minuta:sekunda:milisekunda]
+Przyklad formatu czasu:
+[2016-02-04 12:48:31.203]
+
+Wejscie:
+./LogiSorty ścieżkaDoPliku
+Przykład:
+./LogiSorty plik.txt
+
+Wyjście:
+Stworzony zostaje plik wynikowy o nazwie Sort.txt 

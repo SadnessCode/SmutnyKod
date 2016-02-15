@@ -14,32 +14,30 @@ using namespace std;
 
 class LogSort
 {      
-public:
+   public:
 	struct IntStruct
-		  		{
+	   {
 			
-		  			long long int a;
-					long  line;
-		  		};
-private:
+              long long int a;
+	      long  line;
+	   };
+   private:
 	int iter;
 	int p;
 	int NonLine;
-	
+	short int LineWithoutTime;
 	string nameOfFile;
-	int currentLine;
-    
-    
-    vector < int > container;
+	int currentLine;  
+        vector < int > container;
 
-public:
-    vector <IntStruct*> LineContainer;
-IntStruct *ptr;
-	void  Log (string name);
-    void  Sort (long int lewy, long int prawy);
-	void  Preprocess (string formula,long LineNumber );
-   void WriteToFile ();
-    string GetStringLine(int LineNumber,fstream & File,int i,ofstream & NewFile);
+   public:
+       vector <IntStruct*> LineContainer;
+       IntStruct *ptr;
+       void  Log (string name);
+       void  Sort (long int lewy, long int prawy);
+       void  Preprocess (string formula,long LineNumber );
+       void WriteToFile ();
+       string GetStringLine(int LineNumber,fstream & File,int i,ofstream & NewFile);
 };
 
 

@@ -1,0 +1,20 @@
+Program Analysys v 1.0 służy do wykrywania zadanego przez uzytkownika ciągu znaków w pliku z logami
+
+Wejscie:
+./Analysys sciezkaDoPliku A reg
+gdzie A to ciag znakow ktory ma zostac wyświetlony jeżeli zadany ciąg znaków (reg) zostanie znalezniony w lini pliku;
+Przykład:
+./Analysys plik.txt W szukam
+
+Rezultat gdy zostanie znalezniony ciag znaków "szukam" w lini pliku
+
+[W] Przykladowa linia pliku gdzie znajdziemy ciag {szukam!}
+
+Rezultat gdy nie zostanie znalezniony ciag znaków "szukam" w lini pliku
+
+[.] Linia bez naszego ciagu znaków
+
+Liczba wyrażeń typu [znak] [szukaneWyrazenie] jest nieograniczona
+
+Wyjście:
+To plik wynikowy o nazwie AnalysysOut.txt

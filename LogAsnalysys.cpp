@@ -12,7 +12,7 @@
 #include <string.h>
 #include <string>
 LogAnalysys::LogAnalysys (int Number,char ** a): NumberOfArguments(Number),HandleToArguments(a){}
-string LogAnalysys::do_it (string & LineOfFile)
+string LogAnalysys::do_it (string & LineOfFile) // do all of operations
 {
 	word *Flags;
 	Flags= new word [(NumberOfArguments/2)-1];
@@ -28,7 +28,7 @@ string LogAnalysys::do_it (string & LineOfFile)
 
 
 }
-void LogAnalysys::set_word (word * name,int number,string & re)
+void LogAnalysys::set_word (word * name,int number,string & re) 
 {
 	re=re+'[';
 	for (int i=1;i<number-1;i++)
@@ -45,7 +45,7 @@ void LogAnalysys::set_word (word * name,int number,string & re)
 	}
 	re=re+']';
 }
-void LogAnalysys::set_reg (word * name,int number,char**argc)
+void LogAnalysys::set_reg (word * name,int number,char**argc) 
 {
 
 
@@ -57,7 +57,7 @@ void LogAnalysys::set_reg (word * name,int number,char**argc)
 		name[i].reg=string( argc[(i*2)+3]);
 	}
 }
-void LogAnalysys::if_match (word * name , int number,string & word)
+void LogAnalysys::if_match (word * name , int number,string & word) 
 {
 	regmatch_t cos [5];
 	regex_t regex;
